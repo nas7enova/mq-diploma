@@ -472,6 +472,7 @@ body {
   position: relative;
   display: flex;
   width: 100%;
+  max-width: 360px;
   min-height: 232px;
   box-sizing: border-box;
   padding: 0 17px var(--spacing-basic) var(--spacing-s);
