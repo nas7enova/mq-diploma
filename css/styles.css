@@ -436,7 +436,7 @@ body {
   width: 100%;
   max-width: 360px;
   box-sizing: border-box;
-  margin: 0 auto;
+  margin: 0;
   padding: 0;
 }
 
@@ -472,7 +472,6 @@ body {
   position: relative;
   display: flex;
   width: 100%;
-  max-width: 360px;
   min-height: 232px;
   box-sizing: border-box;
   padding: 0 17px var(--spacing-basic) var(--spacing-s);
@@ -1236,6 +1235,7 @@ body {
   .trends {
     width: 100%;
     max-width: 768px;
+    margin: 0 auto;
   }
 
   .trends__title {
