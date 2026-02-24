@@ -9,13 +9,14 @@
 </head>
 
 <body>
-<label for="popup-1" class="btn">Открыть окно</label>
-<input type="checkbox" class="popup__toggle" id="popup-1">
-<div class="popup">
-  <div class="popup__content">
-    <label for="popup-1" class="popup__close">&times;</label>
-    <h2 class="feedback__title">Ваш фидбек</h2>
-    <form class="feedback-form">
+<button type="button" class="btn__open" onclick="window.myDialog.showModal()">Открыть окно</button>
+<dialog
+id = "myDialog"
+aria-labelledby="feedback-title"
+aria-modal="true">
+<button type="button" class="popup__close" id="btn__close" onclick="window.myDialog.close()" aria-label="Закрыть окно">&times;</button> 
+<h2 class="feedback__title" id="feedback-title">Ваш фидбек</h2>
+    <form class="feedback-form" method="dialog">
       <div class="feedback-form__row feedback-form__row--select">
         <div class="feedback-form__select-wrapper" onclick="this.querySelector('select').showPicker()">
           <span class="feedback-form__hint">Как часто вы заходите на сайт?</span>
@@ -53,8 +54,7 @@
         </button>
       </div>
     </form>
-  </div>
-</div>
+</dialog> 
 <header class="page-header">
   <div class="page-header__top">
     <a href="#"><img class="logo" src="svg/noemi-logo.svg" alt="Logo"></a>
