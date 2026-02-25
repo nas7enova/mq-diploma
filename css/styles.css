@@ -15,8 +15,6 @@
 }
 
 :root {
-  --font-primary: "OpenSans", sans-serif;
-
   --color-text-primary: #000000;
   --color-text-secondary: #ffffff;
   --color-text-accent: rgb(181, 159, 91);
@@ -56,13 +54,13 @@
 body {
   position: relative;
   overflow-x: hidden;
-  margin: 0 auto;
-  padding: 0 15px;
+  margin: 0;
+  padding: 0;
   width: 100%;
   min-height: 100vh;
   box-sizing: border-box;
-  font-family: var(--font-primary);
-  background-color: var(--color-bg-basic);
+  font-family: "OpenSans", sans-serif;
+  background-color: #ffffff;
 }
 
 dialog {
@@ -93,7 +91,7 @@ dialog::backdrop {
   background: rgba(0, 0, 0, 0.5);
 }
 
-.btn__open {
+.btn-open {
   display: inline-flex;
   background: lightgrey;
   color: rgb(0, 0, 0);
@@ -101,7 +99,7 @@ dialog::backdrop {
   border: none;
 }
 
-.popup__close {
+.popup-close {
   position: absolute;
   right: 0;
   top: -33px;
@@ -132,7 +130,7 @@ dialog::backdrop {
   box-sizing: border-box;
 }
 
-.feedback__title {
+.feedback-title {
   padding: 0;
   font-size: var(--font-size-title-l);
   font-weight: 700;
@@ -141,7 +139,7 @@ dialog::backdrop {
   color: var(--color-title-xl);
 }
 
-.feedback__title::after {
+.feedback-title::after {
   content: "";
   display: block;
   width: 66px;
@@ -406,11 +404,11 @@ dialog::backdrop {
   border-radius: 5px;
 }
 
-.logo--top {
+.page-header__logo--top {
   display: none;
 }
 
-.logo--center {
+.page-header__logo--center {
   position: relative;
   z-index: 2;
   display: block;
@@ -476,13 +474,14 @@ dialog::backdrop {
 .article--trend {
   position: relative;
   display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   width: 100%;
   min-height: 232px;
   height: auto;
-  max-height: none;
   box-sizing: border-box;
-  overflow: clip;
-  padding: 0 17px var(--spacing-basic) var(--spacing-s);
+  overflow: hidden;
+  padding: 0;
 }
 
 .article--trend .article__image {
@@ -491,9 +490,9 @@ dialog::backdrop {
   left: 0;
   width: 100%;
   height: 100%;
-  aspect-ratio: auto;
   object-fit: cover;
   object-position: center;
+  z-index: 0;
 }
 
 .article--trend::before {
@@ -508,23 +507,17 @@ dialog::backdrop {
 }
 
 .article--trend .article__container {
-  position: absolute;
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  box-sizing: border-box;
-  left: 18px;
-  right: 18px;
-  bottom: 16px;
   width: auto;
-  height: auto;
-  max-height: calc(100% - 32px);
-  overflow: clip;
-  margin: 0;
-  padding: 27px var(--spacing-xxl) var(--spacing-xl) 17px;
+  margin: 16px 18px;
+  padding: 27px 19px;
   border: 3px solid rgba(181, 159, 91, 0.6);
-  z-index: 2;
+  box-sizing: border-box;
+  background-color: transparent;
+  max-width: calc(100% - 36px);
 }
 
 .article--trend .article__tags {
@@ -559,6 +552,9 @@ dialog::backdrop {
   font-size: var(--font-size-title-l);
   font-weight: 700;
   line-height: 1.2;
+  word-wrap: break-word;
+  hyphens: auto;
+  max-width: 100%;
 }
 
 .article--trend .article__link {
@@ -566,6 +562,7 @@ dialog::backdrop {
   text-decoration: none;
   text-transform: uppercase;
   display: block;
+  max-width: 100%;
 }
 
 .article--trend .article__title:hover {
@@ -602,7 +599,7 @@ dialog::backdrop {
   margin-bottom: 0;
 }
 
-.post__imgbox {
+.post-imgbox {
   position: relative;
   width: 100%;
   max-width: 640px;
@@ -1004,7 +1001,6 @@ dialog::backdrop {
 .products-catalogue {
   display: flex;
   flex-direction: column;
-  flex: 1;
   gap: var(--spacing-xl);
   width: 100%;
 }
@@ -1013,6 +1009,9 @@ dialog::backdrop {
   position: relative;
   width: 100%;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: auto;
 }
 
 .products__title {
@@ -1035,9 +1034,8 @@ dialog::backdrop {
 }
 
 .product__imgbox {
-  min-width: 90%;
-  width: 286px;
-  max-width: 580px;
+  width: calc(100% - 40px);
+  max-width: 100%;
   aspect-ratio: 1 / 1;
   margin: 0 auto;
   background-color: rgb(244, 247, 246);
@@ -1045,8 +1043,6 @@ dialog::backdrop {
 
 .product__img {
   display: block;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -1055,17 +1051,25 @@ dialog::backdrop {
 
 .product__body {
   position: relative;
-  width: 100%;
-  max-width: 640px;
-  height: auto;
-  min-height: 272px;
   display: flex;
   flex-direction: column;
-  margin-top: -30px;
+  flex: 1;
+  width: 100%;
+  max-width: none;
+  height: auto;
+  min-height: 272px;
+  margin: -30px 0 0 0;
   padding: 0 18px 0 17px;
   box-sizing: border-box;
   border: 3px solid rgba(181, 159, 91, 0.6);
   z-index: 2;
+}
+
+.product__body::after {
+  content: "";
+  display: block;
+  flex: 1;
+  min-height: 10px;
 }
 
 .product__title {
@@ -1077,10 +1081,16 @@ dialog::backdrop {
   letter-spacing: -0.7px;
   text-transform: uppercase;
   color: var(--color-title-xl);
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+.product__description {
+  margin: 3px auto 21px;
 }
 
 .product__description p {
-  margin: 3px auto 21px;
+  margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-size: var(--font-size-md);
@@ -1088,6 +1098,7 @@ dialog::backdrop {
   line-height: 1.5;
   color: var(--color-title-xl);
   text-align: left;
+  word-wrap: break-word;
 }
 
 .product__link {
@@ -1102,7 +1113,8 @@ dialog::backdrop {
 .product__footer {
   display: flex;
   justify-content: space-between;
-  margin-bottom: var(--spacing-xl);
+  align-items: center;
+  margin: 0 0 var(--spacing-xl) 0;
 }
 
 .product__prices {
@@ -1136,6 +1148,11 @@ dialog::backdrop {
   border: none;
   background-color: var(--color-bg-btn);
   text-transform: uppercase;
+  cursor: pointer;
+}
+
+.product__button:hover {
+  background-color: var(--color-btn-hover);
 }
 
 .socials {
@@ -1199,7 +1216,7 @@ dialog::backdrop {
 
 .visually-hidden {
   position: absolute;
-  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
   overflow: hidden;
   width: 1px;
   height: 1px;
@@ -1226,6 +1243,12 @@ dialog::backdrop {
   .article--trend {
     width: calc((100% - 2px) / 2);
   }
+
+  .article--trend .article__container {
+    margin: 15px;
+    padding: 20px 15px;
+    max-width: calc(100% - 30px);
+  }
 }
 
 @media (min-width: 641px) and (max-width: 1200px) {
@@ -1234,7 +1257,7 @@ dialog::backdrop {
     padding: 55px var(--spacing-xxl);
   }
 
-  .feedback__title {
+  .feedback-title {
     font-size: var(--font-size-title-xl);
   }
 
@@ -1257,11 +1280,11 @@ dialog::backdrop {
     margin-bottom: 79px;
   }
 
-  .logo--center {
+  .page-header__logo--center {
     display: none;
   }
 
-  .page-header__top .logo {
+  .page-header__logo--top {
     display: flex;
     width: 158px;
   }
@@ -1300,7 +1323,7 @@ dialog::backdrop {
   }
 
   .article--trend {
-    width: calc((100% - 2px) / 2);
+    min-height: 248px;
   }
 
   .article--trend .article__image {
@@ -1308,11 +1331,13 @@ dialog::backdrop {
   }
 
   .article--trend .article__container {
+    max-width: calc(100% - 40px);
     display: flex;
     justify-content: flex-end;
     align-items: flex-start;
-    padding: 26px 24px var(--spacing-xxl) 25px;
     box-sizing: border-box;
+    margin: 20px;
+    padding: 26px 24px;
   }
 
   .article--trend .article__tags {
@@ -1331,7 +1356,6 @@ dialog::backdrop {
     width: 100%;
     max-width: 1200px;
     margin: 48px auto 0;
-
     padding: 0 30px;
     box-sizing: border-box;
   }
@@ -1350,9 +1374,9 @@ dialog::backdrop {
     margin: 0;
   }
 
-  .post__imgbox {
+  .post-imgbox {
     max-width: 100%;
-    max-height: auto;
+    max-height: none;
     aspect-ratio: 329 / 254;
   }
 
@@ -1457,7 +1481,7 @@ dialog::backdrop {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0;
+    padding: 0 30px;
   }
 
   .products__title {
@@ -1500,10 +1524,6 @@ dialog::backdrop {
     padding-top: 50px;
   }
 
-  .product__description {
-    max-width: 295px;
-  }
-
   .product__footer {
     margin-bottom: 0;
   }
@@ -1512,7 +1532,7 @@ dialog::backdrop {
     width: 100%;
     max-width: 1200px;
     margin: 36px auto 0;
-    padding: 0;
+    padding: 0 30px;
   }
 
   .copyright {
@@ -1531,13 +1551,14 @@ dialog::backdrop {
   }
 
   .article--trend {
-    flex: 1 1 calc((100% - 9px) / 4);
-    min-height: 280px;
+    flex: 1;
+    width: auto;
   }
 
   .article--trend .article__container {
-    max-width: 280px;
+    margin: 15px;
     padding: 20px 15px;
+    max-width: calc(100% - 30px);
   }
 
   .article--trend .article__title {
@@ -1549,12 +1570,12 @@ dialog::backdrop {
 }
 
 @media (min-width: 1201px) {
-  .popup__close {
+  .popup-close {
     width: 19px;
     height: 19px;
   }
 
-  .feedback__title {
+  .feedback-title {
     font-size: 20px;
   }
 
@@ -1578,12 +1599,12 @@ dialog::backdrop {
     margin: 0 0 100px;
   }
 
-  .page-header__top .logo {
+  .page-header__logo--top {
     display: flex;
     width: 179px;
   }
 
-  .logo--center,
+  .page-header__logo--center,
   .menu__toggle {
     display: none;
   }
@@ -1630,7 +1651,7 @@ dialog::backdrop {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    align-items: flex-end;
+    align-items: stretch;
     gap: 4px;
     width: 100%;
     max-width: 1660px;
@@ -1650,29 +1671,41 @@ dialog::backdrop {
   }
 
   .article--trend .article__container {
-    position: absolute;
-    left: 18px;
-    right: 18px;
-    bottom: 16px;
+    position: relative;
+    left: auto;
+    right: auto;
+    bottom: auto;
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
     width: auto;
     height: auto;
-    min-height: 0;
-    max-height: calc(100% - 32px);
-    margin: 0;
+    max-height: none;
+    margin: 22px;
+    padding: 26px 18px;
     border: 3px solid rgba(181, 159, 91, 0.6);
     background-color: transparent;
     z-index: 3;
   }
 
   .article--trend .article__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
     margin-bottom: 9px;
   }
 
   .article--trend .article__title {
     font-size: 20px;
+    line-height: 1.2;
+    word-wrap: break-word;
+    hyphens: auto;
+    max-width: 100%;
+  }
+
+  .article--trend .article__link {
+    display: inline-block;
+    max-width: 100%;
   }
 
   .main-content {
@@ -1712,7 +1745,7 @@ dialog::backdrop {
     display: none;
   }
 
-  .post__imgbox {
+  .post-imgbox {
     width: 381px;
     height: 294px;
     flex-shrink: 0;
