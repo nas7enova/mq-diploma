@@ -9,13 +9,13 @@
 </head>
 
 <body>
-<button type="button" class="btn__open" onclick="window.myDialog.showModal()">Открыть окно</button>
+<button type="button" class="btn-open" onclick="window.myDialog.showModal()">Открыть окно</button>
 <dialog
 id = "myDialog"
 aria-labelledby="feedback-title"
 aria-modal="true">
-<button type="button" class="popup__close" id="btn__close" onclick="window.myDialog.close()" aria-label="Закрыть окно">&times;</button> 
-<h2 class="feedback__title" id="feedback-title">Ваш фидбек</h2>
+<button type="button" class="popup-close" id="btn__close" onclick="window.myDialog.close()" aria-label="Закрыть окно">&times;</button> 
+<h2 class="feedback-title" id="feedback-title">Ваш фидбек</h2>
     <form class="feedback-form" method="dialog">
       <div class="feedback-form__row feedback-form__row--select">
         <div class="feedback-form__select-wrapper" onclick="this.querySelector('select').showPicker()">
@@ -57,7 +57,7 @@ aria-modal="true">
 </dialog> 
 <header class="page-header">
   <div class="page-header__top">
-    <a href="#"><img class="logo" src="svg/noemi-logo.svg" alt="Logo"></a>
+    <a href="#"><img class="page-header__logo page-header__logo--top" src="svg/noemi-logo.svg" alt="Logo"></a>
     <nav class="menu" aria-label="Main navigation">
       <ul class="menu__list">
         <li class="menu__item"><a href="#">Главная</a></li>
@@ -73,7 +73,7 @@ aria-modal="true">
       </button>
     </nav>
   </div>
-  <a href="#" class="logo logo--center">
+  <a href="#" class="page-header__logo page-header__logo--center">
     <img class="logo" src="svg/noemi-logo.svg" alt="Logo" width="270" height="70">
   </a>
   <h1 class="page-title">Блог о творчестве, спорте, и образе жизни</h1>
@@ -126,7 +126,7 @@ aria-modal="true">
   <div class="articles-wrapper">
     <div class="posts">
       <article class="article article--post">
-        <div class="post__imgbox">
+        <div class="post-imgbox">
           <img src="images/last-post1.jpg" alt="Top-places" class="article__image">
         </div>
         <div class="article__container">
@@ -145,7 +145,7 @@ aria-modal="true">
         </div>
       </article>
       <article class="article article--post">
-        <div class="post__imgbox">
+        <div class="post-imgbox">
           <img src="images/last-post2.jpg" alt="Yoga" class="article__image">
         </div>
         <div class="article__container">
@@ -164,7 +164,7 @@ aria-modal="true">
         </div>
       </article>
       <article class="article article--post">
-        <div class="post__imgbox">
+        <div class="post-imgbox">
           <img src="images/last-post3.jpg" alt="Festivals" class="article__image">
         </div>
         <div class="article__container">
@@ -183,7 +183,7 @@ aria-modal="true">
         </div>
       </article>
       <article class="article article--post">
-        <div class="post__imgbox">
+        <div class="post-imgbox">
           <img src="images/last-post4.jpg" alt="Cuisine" class="article__image">
         </div>
         <div class="article__container">
@@ -202,7 +202,7 @@ aria-modal="true">
         </div>
       </article>
       <article class="article article--post">
-        <div class="post__imgbox">
+        <div class="post-imgbox">
           <img src="images/last-post5.jpg" alt="Pillows" class="article__image">
         </div>
         <div class="article__container">
